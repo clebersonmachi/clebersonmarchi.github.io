@@ -1,0 +1,317 @@
+
+//---------------------------------------------------------------------
+// * PADRÕES DO NAVEGADOR
+//---------------------------------------------------------------------
+.navegador-selecao();
+
+// carregando
+//---------------------------------------------------------------------
+#carregando{
+	font-size:16px;
+	background-color:@brand-primary;
+	border:1px solid darken(@brand-primary,10px);
+	color:#fff;
+	text-shadow:-1px -1px 0 rgba(0,0,0,.3);
+	padding:(@conf-padding / 2) @conf-padding;	
+	border-radius:@border-radius-base;
+	z-index:9999;
+	.wd-alinha-meio(fixed);
+	.box-shadow(0 5px 10px rgba(0, 0, 0, 0.5));
+	
+	&.carregando-ok,
+	&.carregando-erro
+	{border:none !important;text-align:center;}
+	
+	
+	&.carregando-ok{background-color:@brand-success !important;}
+	&.carregando-erro{background-color:@brand-danger !important;}
+	
+}
+
+// ----------------------------------------------------------------------- 
+// CLASSES PADRÕES
+// -----------------------------------------------------------------------
+
+// mapa
+//---------------------------------------------------------------------
+#mapa{
+	
+	@h : @conf-topo-height;
+	
+	height:@h; 
+	width:100%;
+	
+	> span{line-height:@h; display:block; text-align:center;}
+	
+}
+
+/*
+// ui auto complete
+//-----------------------------------------------------------------------
+.ui-autocomplete{
+	list-style:none;
+	padding:0;
+	cursor: default;
+	left:0;
+	position: absolute;
+	top:0;
+	z-index:900;
+}
+.ui-autocomplete-category{color:#222 !important; font-size:13pt;}
+.ui-helper-hidden-accessible{display:none;}
+*/
+
+// ui sortable
+//-----------------------------------------------------------------------
+.ui-sortable{
+
+	.destino{ 
+		border: 1px dashed @hr-border; 
+		padding: @conf-padding / 2;
+		margin: (@conf-margem / 4) 0;
+
+	}
+
+	li{
+		list-style: none;
+		ul{ 
+			min-height: @conf-padding; 
+			margin: 0;
+		}
+	}
+	
+
+}
+
+
+// paginação
+//---------------------------------------------------------------------
+.mysql-paginacao{
+	text-align: right;
+	margin-top: @conf-margem;
+	display: inline-block;
+	width: 100%;
+
+	.pagination,
+	.mysql-paginacao-info{
+		float: right;
+		margin: 0;
+	}
+
+	.pagination{margin-left: @conf-margem;}
+	.mysql-paginacao-info{
+		.small();
+		padding: (@conf-padding / 2) 0;
+	}
+}
+
+// bordas
+//---------------------------------------------------------------------
+.borda{
+	
+	@b : 1px;
+	@t : solid;
+	@c : #ddd;
+	@p : round(@conf-padding / 2);
+	
+	border:@b @t @c;
+	
+	&-t{
+		border-top:@b @t @c;
+		//box-shadow:inset 0 1px 0 #fff;
+		padding-top:@p !important;
+		margin-top:@conf-margem;
+	}
+	
+	&-b{
+		border-bottom:@b @t @c;
+		//box-shadow:0 1px 0 #fff;
+		padding-bottom:@p !important;
+		margin-bottom:@conf-margem;
+	}
+	
+	//&-b.&-t{}
+	
+	&-e,
+	&-e-d{
+		border-left:@b @t @c;
+		//box-shadow:inset 1px 0 0 #fff;
+		padding-left:@conf-padding !important;
+	}
+	
+	&-d,
+	&-e-d{
+		border-right:@b @t @c;
+		//box-shadow:0 1px 0 #FFF; 
+		padding-right:@conf-padding !important;
+	}
+	
+	//&-e-d{box-shadow:1px 0 0 #FFF,inset 1px 0 0 #fff;}
+	
+}
+
+// bg escuro
+//---------------------------------------------------------------------
+.bg-destaque{
+	
+	@b: 1px solid #fff;
+	
+	border-bottom:@b;
+	border-top:@b;
+	background-image:url(../layout/solucoes-bg-contato.jpg);
+	.box-shadow(inset 0 2px 5px rgba(0,0,0,.05));
+	
+	
+}
+
+
+// bg escuro
+//---------------------------------------------------------------------
+.bg-escuro{
+	
+	background-color:@conf-cor-bg-escuro;
+	//.box-shadow(inset 0 2px 15px rgba(0,0,0,.5));
+	
+	&,
+	& *{ 
+		color: @conf-cor-texto-escuro; 
+		text-shadow: -1px -1px 0 rgba(0,0,0,.2);
+	}
+	
+	// bordas
+	.borda{
+	
+		@c : darken(@conf-cor-bg-escuro, 5%);
+		
+		border-color:@c;
+		
+		&-t{ border-top-color:@c; }
+		&-b{ border-bottom-color:@c; }
+		
+		&-e,
+		&-e-d{ border-left-color:@c; }
+		
+		&-d,
+		&-e-d{ border-right-color:@c; }
+		
+	}
+	
+	// formularios
+	form{
+		
+		input,
+		select,
+		textarea
+		{ 
+			color:#fff;
+			background-color:lighten(@conf-cor-bg-escuro,2%); 
+			border-color:darken(@conf-cor-bg-escuro,5%);
+			
+			&:focus{
+				border-color:@brand-primary;
+				color:@brand-primary;
+				.box-shadow(none);
+			}
+			
+		}
+		
+		label em{ 
+			font-size:12px; 
+			display:block; 
+			font-style:normal; 
+			color:#ccc;
+		}
+		
+		
+	}
+	
+}
+
+// bg branco
+//---------------------------------------------------------------------
+.bg-branco{
+	background-color:#fff;
+	padding:(@conf-padding - 4px) 0;
+	.box-shadow(0 0 2px rgba(0, 0, 0, 0.1));
+	
+	&.site_get_twitter{
+		margin-bottom:@conf-margem;
+	}
+	
+}
+
+// Sombra padrão
+//---------------------------------------------------------------------
+.sombra{
+	.box-shadow(0 0 6px rgba(0,0,0,.2));
+	background-color:#fff;
+}
+
+.sombra-dura,
+.base-conhecimento .bc-menu > ul > li{
+	.box-shadow(1px 1px 1px rgba(0,0,0,.1));
+	background-color:#fff;
+}
+
+// espaçamentos
+//---------------------------------------------------------------------
+
+.margem{
+	
+	margin:@conf-margem;
+	
+	&-h{margin-top:@conf-margem !important;margin-bottom:@conf-margem !important;}
+	&-w{margin-left:@conf-margem !important;margin-right:@conf-margem !important;}
+	&-t{margin-top:@conf-margem !important;}
+	&-b{margin-bottom:@conf-margem !important;}
+	
+}
+
+.pad{
+	
+	padding:@conf-padding;
+	
+	&-h{padding-top:@conf-padding !important;padding-bottom:@conf-padding !important;}
+	&-w{padding-left:@conf-padding !important;padding-right:@conf-padding !important;}
+	&-t{padding-top:@conf-padding !important;}
+	&-b{padding-bottom:@conf-padding !important;}
+	
+}
+
+// compartilhar
+//---------------------------------------------------------------------
+.fn-social{
+	
+	margin-top:20px;
+	width:100%;
+	display:inline-block;
+	
+	> div{float:left; width:90px; margin-right:10px;}
+	.fs-twitter{padding-top:2px;}
+	.fs-google-plus{width:70px;}
+	.fs-facebook{padding-top:2px;}
+}
+
+// texto em colunas
+//---------------------------------------------------------------------
+
+.texto-duas-colunas{
+	.content-columns(2);
+	
+	@media (max-width:@screen-phone){
+		.content-columns(1);
+	}
+	
+}
+
+// texto em tres colunas
+//---------------------------------------------------------------------
+
+.texto-tres-colunas{
+	.content-columns(3);
+	
+	@media (max-width:@screen-tablet){
+		.content-columns(1);
+	}
+	
+}

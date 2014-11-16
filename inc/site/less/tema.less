@@ -1,0 +1,237 @@
+
+// Nom responsive
+// -------------------------------------------------------------
+/*
+.container,
+body > header,
+.conteudo-site,
+body > footer
+{
+	min-width:980px !important;
+}
+*/
+
+body{
+
+	@menu-principal-width: 230px;
+
+	// Cabeçalho
+	// -------------------------------------------------------------
+
+	> header{
+		
+		// Logo
+		// --------------------------------------------------------
+		.navbar-brand{
+			
+			width: 200px;
+			background: url('../img/logo.png') no-repeat left center;
+			text-indent: -9999px;
+		}
+
+		// buscar
+		// --------------------------------------------------------
+		.navbar-form{
+			
+			width : ~"calc(100% - 270px)";
+			position: relative;
+
+			> input{
+				width: 100% !important;
+				border-color: lighten(@hr-border, 5%);
+				.box-shadow(none);
+
+				&:focus{
+					border-color:@brand-primary;
+				}
+			}
+
+			> button{
+				.box-shadow(none);
+				position: absolute; 
+				top: 0; 
+				right: 0;
+				margin: 0;
+			}
+
+			@media (max-width : @grid-float-breakpoint) {
+				width : auto;
+				> button{
+					top: 10px;
+					right: 15px;
+				}
+			}
+
+		}
+
+		// menu direita
+		// --------------------------------------------------------
+		.navbar-nav.navbar-right{
+			
+			// textos
+			>li{
+				>a{
+					span.glyphicon{ font-size: 18px; }
+					span.texto{display: none;}
+				}
+			}
+			
+
+			// menu principal (categorias)
+			// --------------------------------------------------------
+			.menu-principal{
+				
+				position: static;
+
+				.lista-categorias-menu{
+					padding-bottom: @conf-padding;
+					position: absolute;
+					left: 0;
+					width: 100%;
+					z-index: 200;
+				}
+
+			}
+			
+			// responsive
+			// --------------------------------------------------------
+			@media (max-width : @grid-float-breakpoint) {
+
+				>li{
+					>a{
+						span.glyphicon{ font-size: inherit; }
+						span.texto{display: inline;}
+					}
+				}
+				
+				.menu-principal{
+				
+					position: relative;
+
+					.lista-categorias-menu{
+						position: static;
+						width: auto;
+					}
+
+				}
+			}
+
+		}
+
+		
+
+	}
+
+	// Conteúdo
+	// -------------------------------------------------------------
+
+	.conteudo-site{
+		
+		margin-top:@navbar-height;
+		
+		// reseta o container
+		.container{ & & { width:auto; padding:0; margin:0; } }
+
+		// Navegação Conteúdo
+		// -------------------------------------------------------------
+		.navbar-conteudo{
+
+			.navbar-form{
+				display: none;
+				> button{
+					margin: 0;
+				}
+			}
+			
+			// fix£a no topo
+			&.navbar-fixed-top{
+				top:@navbar-height;
+				.navbar-form{
+					display: block;
+				}
+			}
+
+		}
+
+	}
+
+	// Rodapé
+	// -------------------------------------------------------------
+	> footer{
+	
+		margin-top:@conf-margem;
+		
+		p{ margin:0; }
+		
+		// Padroniza as listas
+		// -------------------------------------------------------------
+		ul{ .list-unstyled() }
+
+		// Fundo empresa
+		// -------------------------------------------------------------
+		.bg-empresa{
+
+			background-color: darken(@conf-cor-bg-escuro,3%);
+			border-top: 1px solid darken(@conf-cor-bg-escuro,5%);
+			margin-top: @conf-margem;
+
+		}
+
+		// links social
+		//------------------------------------------------------------------
+		a.ico-social{
+			
+			@w : 33px;
+			@h : 33px;
+			
+			background-color:@conf-cor-bg-escuro;
+			border-radius:50%;
+			.img-retina-2x('../img/social.png',165px);
+			.wd-ico(no-repeat, 0 0);
+			width:@w;
+			height:@w;
+			margin:0 2px;
+			.transition(all ease-out .25s);
+			
+			&:hover{
+				background-color : darken(@conf-cor-bg-escuro,10%);
+			}
+							
+			&.ico-twitter{ 
+				background-position:0 0;
+				&:hover{
+					background-position:0 -@h;
+				}
+			}
+			&.ico-pinterest{ 
+				background-position:-@w 0;
+				&:hover{
+					background-position:-@w -@h;
+				}
+			}
+			&.ico-facebook{ 
+				background-position:-(@w * 2) 0;
+				&:hover{
+					background-position:-(@w * 2) -@h;
+				}
+			}
+			&.ico-google-plus{ 
+				background-position:-(@w * 3) 0; 
+				&:hover{
+					background-position:-(@w * 3) -@h;
+				}					
+			}
+			&.ico-youtube{ 
+				background-position:-(@w * 4) 0; 
+				&:hover{
+					background-position:-(@w * 4) -@h;
+				}
+			}
+			
+		}
+
+	}
+
+	
+
+}

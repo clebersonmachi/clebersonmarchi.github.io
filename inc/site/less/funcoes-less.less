@@ -1,0 +1,105 @@
+
+// cria a seleção do navegador
+.navegador-selecao(){
+	
+	::selection{color:#333; background-color:@brand-primary; text-shadow:1px 1px 0 rgba(255,255,255,.1);}
+	::-moz-selection{color:#333; background-color:@brand-primary; text-shadow:1px 1px 0 rgba(255,255,255,.1);}
+		
+}
+
+// Retina images
+//
+// cria imagens em retina de acordo com o retina js
+
+.img-retina-2x(@path, @w: auto, @h: auto) {
+   @at2x_path: ~`@{path}.replace(/\.\w+$/, function(match) { return "@2x" + match; })`;
+  	.img-retina(@path; @at2x_path; @w; @h);
+}
+
+
+// icones
+.wd-ico(@r : no-repeat, @p : 'left top'){
+	display:inline-block;
+	text-indent:-9999px;
+	text-align:left;
+	background-repeat:@r;
+	background-position:@p;
+}
+
+// gradiente repetido (estilo zebrinha)
+.wd-gradiente-repetido(@a, @c1, @c2, @d){
+	
+	background-image: -webkit-repeating-linear-gradient(
+		@a, 
+		@c1, 
+		@c1 @d,	
+		@c2 (@d * 2), 
+		@c2 (@d * 4)
+	);
+	background-image: -moz-repeating-linear-gradient(
+		@a, 
+		@c1, 
+		@c1 @d,	
+		@c2 (@d * 2), 
+		@c2 (@d * 4)
+	);
+	background-image: -o-repeating-linear-gradient(
+		@a, 
+		@c1, 
+		@c1 @d,	
+		@c2 (@d * 2), 
+		@c2 (@d * 4)
+	);
+	background-image: repeating-linear-gradient(
+		@a, 
+		@c1, 
+		@c1 @d,	
+		@c2 (@d * 2), 
+		@c2 (@d * 4)
+	);
+	
+}
+
+// alinha ao meio
+.wd-alinha-meio(@position:absolute, @x: 50%, @y: 50%){
+	
+	position:@position;
+	top:@y; 
+	left:@x;
+	.translate(-@x,-@y);
+	
+}
+
+
+// seta com css
+.wd-seta{
+	
+	.wd-seta-padrao(){
+		position:absolute;
+		content:'';
+		width:0;
+		height:0;
+	}
+	
+	.rodape(@tamanho : 5px, @cor : @brand-primary){
+		
+		.wd-seta-padrao();
+		top:100%;
+		left:50%;
+		margin-left:-@tamanho;
+		border:@tamanho solid transparent;
+		border-top-color:@cor;
+		
+	}
+	
+	
+	
+	
+}
+
+// importar fontes do google
+.wd-google-fonts (@name, @weights) {
+    
+	@import ~"url('https://fonts.googleapis.com/css?family=@{name}:@{weights}')";
+	
+}

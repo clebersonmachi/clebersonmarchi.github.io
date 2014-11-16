@@ -1,0 +1,35 @@
+// Google maps
+//--------------------------------------------------------------------
+#map-canvas{
+
+	@h : 400px;
+
+	background-color:#fff;
+	height:@h; 
+	width:100%; 
+	border:1px solid #fff; 
+	box-shadow:0 0 5px rgba(0,0,0,.2);
+	margin-bottom:@conf-margem;
+
+	> span{
+		display:block; 
+		line-height:@h; 
+		text-align:center;
+	}
+
+	&-input{
+		padding: @conf-padding / 4;
+		background-color:#fff; 
+		box-shadow:0 0 5px rgba(0,0,0,.2);
+		font-size:10pt !important;
+		width:340px;
+		margin-top:28px;
+		border:1px solid @hr-border;
+
+		&:focus{
+			outline: 0;
+			border-color: @brand-primary;
+		}
+	}
+
+}
